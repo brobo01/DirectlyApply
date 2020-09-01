@@ -56,88 +56,120 @@ handleChange = event => {
   render(){
     const { formData, errors } = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
-
-
-        <label> Name: </label>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          className={errors.name ? 'error' : ''}
-        />
-        <div className="error-msg">
-          {errors.name && <small>{errors.name}</small>}
-        </div>
+      <div>
+        <div className="header">
           
-
-        <label> How did you find out about us? </label>
-        <select
-          name="reference"
-          onChange={this.handleChange}
-          className={errors.reference ? 'error' : ''}
-        >
-          <option value=""></option>
-          <option value="search-engine">Search Engine</option>
-          <option value="advert">Advert</option>
-          <option value="social-media">Social Media</option>
-        </select>
-        <div className="error-msg">
-          {errors.reference && <small>{errors.reference}</small>}
         </div>
 
 
-        <label> Email: </label>
-        <input type="email"
-          name="email"
-          onChange={this.handleChange}
-          value={formData.email}
-          className={errors.email ? 'error' : ''}
-        />
-        <div className="error-msg">
-          {errors.email && <small>{errors.email}</small>}
-        </div>
+        <div className="body">
+          <div className="form">
+            <h1>Sign Up</h1>
+            <form onSubmit={this.handleSubmit}>
 
+              <div className="form-item">
+                <label> Name: </label>
+                <div className="form-input">
+                  <input
+                    type="text"
+                    name="name"
+                    onChange={this.handleChange}
+                    className={errors.name ? 'error' : ''}
+                  />
+                  <div className="error-msg">
+                    {errors.name && <small>{errors.name}</small>}
+                  </div>
+                </div>
+              </div>
+          
+              <div className="form-item">
+                <label> How did you find out about us? </label>
+                <div className="form-input">
+                  <select
+                    name="reference"
+                    onChange={this.handleChange}
+                    className={errors.reference ? 'error' : ''}
+                  >
+                    <option value=""></option>
+                    <option value="search-engine">Search Engine</option>
+                    <option value="advert">Advert</option>
+                    <option value="social-media">Social Media</option>
+                  </select>
+                  <div className="error-msg">
+                    {errors.reference && <small>{errors.reference}</small>}
+                  </div>
+                </div>
+              </div>
 
-        <label> Phone number: </label>
-        <input
-          type="text"
-          name="phone"
-          onChange={this.handleChange}
-          className={errors.phone ? 'error' : ''}
-        />
-        <div className="error-msg">
-          {errors.phone && <small>{errors.phone}</small>}
-        </div>
+              <div className="form-item">
+                <label> Email: </label>
+                <div className="form-input">
+                  <input type="email"
+                    name="email"
+                    onChange={this.handleChange}
+                    value={formData.email}
+                    className={errors.email ? 'error' : ''}
+                  />
+                  <div className="error-msg">
+                    {errors.email && <small>{errors.email}</small>}
+                  </div>
+                </div>
+              </div>
 
-        <label> Password: </label>
-        <input type="password"
-          name="password"
-          onChange={this.handleChange}
-          value={formData.password}
-          className={errors.password ? 'error' : ''}
-        />
-        <div className="error-msg">
-          {errors.password && <small>{errors.password}</small>}
-        </div>
+              <div className="form-item">
+                <label> Phone number: </label>
+                <div className="form-input">
+                  <input
+                    type="text"
+                    name="phone"
+                    onChange={this.handleChange}
+                    className={errors.phone ? 'error' : ''}
+                  />
+                  <div className="error-msg">
+                    {errors.phone && <small>{errors.phone}</small>}
+                  </div>
+                </div>
+              </div>
 
-        <label> Confirm Password: </label>
-        <input type="password"
-          name="passwordConfirmation"
-          onChange={this.handleChange}
-          value={formData.passwordConfirmation}
-          className={errors.passwordConfirmation ? 'error' : ''}
-        />
-        <div className="error-msg">
-          {errors.passwordConfirmation && <small>{errors.passwordConfirmation}</small>}
-        </div>
+              <div className="form-item">
+                <label> Password: </label>
+                <div className="form-input">
+                  <input type="password"
+                    name="password"
+                    onChange={this.handleChange}
+                    value={formData.password}
+                    className={errors.password ? 'error' : ''}
+                  />
+                  <div className="error-msg">
+                    {errors.password && <small>{errors.password}</small>}
+                  </div>
+                </div>
+              </div>
+
+              <div className="form-item">
+                <label> Confirm Password: </label>
+                <div className="form-input">
+                  <input type="password"
+                    name="passwordConfirmation"
+                    onChange={this.handleChange}
+                    value={formData.passwordConfirmation}
+                    className={errors.passwordConfirmation ? 'error' : ''}
+                  />
+                  <div className="error-msg">
+                    {errors.passwordConfirmation && <small>{errors.passwordConfirmation}</small>}
+                  </div>
+                </div>
+              </div>
         
-        <button
-          type='submit'
-          className="submit-btn"
-        >SIGN UP</button>
+              <button
+                type='submit'
+                className="submit-btn"
+              >SIGN UP</button>
 
-      </form>
+            </form>
+          </div>
+        </div>
+      </div>
     )
   }
 
