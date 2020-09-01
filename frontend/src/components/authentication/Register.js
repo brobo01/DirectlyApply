@@ -51,17 +51,11 @@ handleChange = event => {
     console.log(this.state)
   }
 
-
-
   render(){
     const { formData, errors } = this.state
     return (
       <div>
-        <div className="header">
-          
-        </div>
-
-
+        <div className="header">Welcome to DirectlyApply</div>
         <div className="body">
           <div className="form">
             <h1>Sign Up</h1>
@@ -172,8 +166,6 @@ handleChange = event => {
       </div>
     )
   }
-
 }
 
 export default Register
-
