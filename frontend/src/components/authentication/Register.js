@@ -1,13 +1,4 @@
 import React from 'react'
-import Select from 'react-select'
-import Input from 'react-phone-number-input/input'
-
-
-const options = [
-  { value: 'search-engine', name: 'Search engine',  label: 'Search engine'  },
-  { value: 'advert', name: 'Advert', label: 'Advert' },
-  { value: 'social-media', name: 'Social Media', label: 'Social Media' }
-]
   
 class Register extends React.Component{
   state = {
@@ -18,8 +9,7 @@ class Register extends React.Component{
       password: '',
       passwordConfirmation: ''
     },
-    errors: {},
-    reference: {}
+    errors: {}
   }
 
 // Function for text inputs 
@@ -27,11 +17,6 @@ handleChange = event => {
   const formData = { ...this.state.formData, [event.target.name]: event.target.value }
   const errors = { ...this.state.errors, [event.target.name]: '' }
   this.setState({ formData, errors  })
-}
-
-// Fuction for list input
-handleListChange = selected => {
-  this.setState({ reference: selected.value })
 }
 
 // Function for submitting form. Function checks which fields haven't been filled in and turns them red
@@ -48,8 +33,8 @@ handleListChange = selected => {
     if (!this.state.formData.phone) {
       errors['phone'] =  'Please enter a phone number' 
     } 
-    if (!this.state.reference) {
-      errors['reference'] =  'Please enter a phone number' 
+    if (!this.state.formData.reference) {
+      errors['reference'] =  'Please let us know how you found us' 
     } 
     if (!this.state.formData.password) {
       errors['password'] =  'Please enter a password' 
@@ -72,24 +57,35 @@ handleListChange = selected => {
     const { formData, errors } = this.state
     return (
       <form onSubmit={this.handleSubmit}>
+
+
         <label> Name: </label>
-        <input type="text"
+        <input
+          type="text"
           name="name"
           onChange={this.handleChange}
           className={errors.name ? 'error' : ''}
-
         />
+        <div className="error-msg">
+          {errors.name && <small>{errors.name}</small>}
+        </div>
           
+
         <label> How did you find out about us? </label>
-        <Select
+        <select
           name="reference"
-          options={options} 
-          onChange={this.handleListChange}
+          onChange={this.handleChange}
           className={errors.reference ? 'error' : ''}
-        />
+        >
+          <option value=""></option>
+          <option value="search-engine">Search Engine</option>
+          <option value="advert">Advert</option>
+          <option value="social-media">Social Media</option>
+        </select>
         <div className="error-msg">
           {errors.reference && <small>{errors.reference}</small>}
         </div>
+
 
         <label> Email: </label>
         <input type="email"
@@ -102,12 +98,12 @@ handleListChange = selected => {
           {errors.email && <small>{errors.email}</small>}
         </div>
 
+
         <label> Phone number: </label>
-        <Input
-          name="[phone]"
-          placeholder="Enter phone number"
-          value={formData.number}
-          onChange={this.handleListChange}
+        <input
+          type="text"
+          name="phone"
+          onChange={this.handleChange}
           className={errors.phone ? 'error' : ''}
         />
         <div className="error-msg">
